@@ -1,0 +1,32 @@
+import java.util.Arrays;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int[] arr = {0,7,0,9,11};
+        System.out.println(Arrays.toString(solution(arr)));
+    }
+
+    public static int [] solution(int[] nums) {
+
+        if (nums.length == 0 || nums == null) return nums;
+
+        int indx = 0;
+
+        for (int j = 0; j < nums.length; j++) { //loop for array, line up all non-zero numbers
+            if (nums[j] != 0) { //if it's a non-zero number
+                nums[indx] = nums[j]; // asign non-zero number to slow pointer
+                indx++; // slow pointer gets ready for next non-zero
+            }
+        }
+        //since now slow pointer is still at 3, need to take care of the rest of array
+        for (int i = indx; i <nums.length; i++){//loop for the rest of this array, assign 0 for the rest
+            nums[i] = 0;
+        }
+        return nums;
+}
+}
+
+
+
